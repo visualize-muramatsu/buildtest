@@ -9,7 +9,7 @@ public class BuildScript
     [UnityEditor.MenuItem("Tools/Build Project AllScene Android")]
     public static void BuildProjectAllSceneAndroid()
     {
-        EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTarget.Android);
+        EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android,BuildTarget.Android);
         List<string> allScene = new List<string>();
         foreach (EditorBuildSettingsScene scene in EditorBuildSettings.scenes)
         {
@@ -18,8 +18,10 @@ public class BuildScript
                 allScene.Add(scene.path);
             }
         }
-//        PlayerSettings.bundleIdentifier = "com.yourcompany.newgame";
-//        PlayerSettings.statusBarHidden = true;
+        //        PlayerSettings.bundleIdentifier = "com.yourcompany.newgame";
+        //        PlayerSettings.statusBarHidden = true;
+        PlayerSettings.keyaliasPass = "buildtestTeam";
+        PlayerSettings.keystorePass = "buildtestTeam"; 
         BuildPipeline.BuildPlayer(
             allScene.ToArray(),
             "newgame.apk",
