@@ -24,7 +24,7 @@ public class BuildScript
         PlayerSettings.keystorePass = "buildtestTeam"; 
         BuildPipeline.BuildPlayer(
             allScene.ToArray(),
-            "newgame.apk",
+            "Android/buildtest.apk",
             BuildTarget.Android,
             BuildOptions.None
         );
